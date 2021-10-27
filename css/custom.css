@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600&display=swap');
+
+:root {
+	--info: 163, 238, 238;
+	--success: 0, 255, 69;
+	--warning: 232, 166, 76;
+	--danger: 255, 53, 69;
+	--update-time: 1s;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	font-family: 'Titillium Web', sans-serif;
+	background: linear-gradient(to bottom, #064240, #0a191d);
+	color: rgb(var(--info));
+	text-shadow: 0 0 .25rem rgba(var(--info), .32);
+	letter-spacing: 0.09em;
+}
+
+h1, h2, h3 {
+	text-transform: uppercase;
+}
+h3 {
+	font-weight: 100;
+}
+h3 b {
+	font-weight: 300;
+}
+
+.window-buttons {
+	z-index: 1001;
+}
+
+.text-small {
+	font-size: .75rem;
+}
+
+.text-muted {
+	color: inherit !important;
+	opacity: .64;
+}
+
+.text-info {
+	color: rgb(var(--info)) !important;
+	text-shadow: 0 0 .25rem rgba(var(--info), .32);
+}
+.text-success {
+	color: rgb(var(--success)) !important;
+	text-shadow: 0 0 .25rem rgba(var(--success), .32);
+}
+.text-warning {
+	color: rgb(var(--warning)) !important;
+	text-shadow: 0 0 .25rem rgba(var(--warning), .32);
+}
+.text-danger {
+	color: rgb(var(--danger)) !important;
+	text-shadow: 0 0 .25rem rgba(var(--danger), .32);
+}
+
+.bg-info {
+	background-color: rgb(var(--info)) !important;
+}
+
+.card {
+	background: linear-gradient(to bottom, #052428, #011818);
+	border-radius: 0;
+	border: none;
+}
+.card .card {
+	background: #062B33;
+}
+.card h1 {
+	font-weight: 100;
+}
+
+.card-style-1:before,
+.card-style-1:after {
+	content: "";
+	position: absolute;
+	background: linear-gradient(to bottom, transparent 45%, rgba(var(--info), .32) 46%, rgba(var(--info), .32) 54%, transparent 55%) repeat-y 50%;
+	background-size: auto 1.1rem;
+	top: 0;
+	bottom: 0;
+	width: .333rem;
+}
+.card-style-1::before {
+	left: .333rem;
+}
+.card-style-1::after {
+	right: .333rem;
+}
+.card-style-1 .card-body {
+	padding: 1rem 1.5rem;
+}
+
+.card-style-2 {
+	--corner-size: 1.5rem;
+	margin-top: var(--corner-size);
+}
+.card-style-2::before,
+.card-style-2::after {
+	content: "";
+	position: absolute;
+	height: var(--corner-size);
+	top: calc(var(--corner-size) * -1);
+}
+.card-style-2 > .card-body {
+	margin-top: calc(var(--corner-size) * -1);
+	z-index: 1;
+}
+.card-style-2::before {
+	width: 0;
+	height: 0;
+	border-top: var(--corner-size) solid transparent;
+	border-right: var(--corner-size) solid #052428;
+}
+.card-style-2::after {
+	left: var(--corner-size);
+	right: 0;
+	background-color: #052428;
+}
+
+.card-progress div:not(.progress-bar) {
+	z-index: 1;
+}
+.card-progress > .progress-bar {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	top: 0;
+	opacity: .16;
+}
+
+.info-text {
+	margin: 0;
+	font-size: .75rem;
+}
+
+.info-text span {
+	opacity: .64;
+}
+
+
+.window-buttons .btn {
+	--btn-size: 1.1rem;
+	font-size: .8rem;
+	width: var(--btn-size);
+	height: var(--btn-size);
+	line-height: var(--btn-size);
+	padding: 0;
+	border-radius: 0;
+	color: rgb(var(--info));
+	border-color: rgb(var(--info));
+	background-color: transparent !important;
+}
+.window-buttons .btn:hover {
+	box-shadow: 0 0 .5rem rgba(var(--info), .32);
+	text-shadow: 0 0 0.25rem rgba(var(--info), .64);
+}
+
+
+.progress {
+	background-color: #08262E;
+	border-radius: 0;
+}
+.progress .progress-bar {
+	transition: var(--update-time) all ease;
+}
+.progress-v {
+	position: relative;
+	height: 100%;
+}
+
+.progress-v .progress-bar {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+.progress-ring {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	filter: drop-shadow(0 0 1rem rgba(255, 255, 0, .5)) drop-shadow(0 0 .5rem rgba(255, 255, 0, .25));
+}
+
+.progress-ring__circle {
+	transition: var(--update-time) stroke-dashoffset ease;
+	transform: rotate(-90deg);
+	transform-origin: 50% 50%;
+	stroke: yellow;
+	stroke-width: 8;
+}
+
+#mem {
+	filter: drop-shadow(0 0 1rem rgba(0, 255, 255, .5)) drop-shadow(0 0 .5rem rgba(0, 255, 255, .25));
+}
+
+#mem .progress-ring__circle {
+	stroke: aqua;
+}
+
+.lines {
+	-webkit-app-region: drag;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0) 65%) repeat;
+	background-size: 100vw 8px;
+	-webkit-animation: lines .2s infinite linear;
+	animation: lines .2s infinite linear;
+}
+
+@-webkit-keyframes lines {
+	0% {
+		background-position-y: 0;
+	}
+	100% {
+		background-position-y: 8px;
+	}
+}

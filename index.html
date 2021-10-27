@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-pro/css/all.min.css">
+	<link rel="stylesheet" href="apexcharts/apexcharts.css">
+	<link rel="stylesheet" href="css/custom.css">
+	<title>Title</title>
+</head>
+<body>
+
+<div class="container-fluid h-100 d-flex flex-column justify-content-between pb-3">
+	<div class="row gx-4 align-items-center">
+		<div class="col-auto window-buttons">
+			<button class="btn btn-outline-info"><i class="far fa-times"></i></button>
+			<button class="btn btn-outline-info"><i class="far fa-minus"></i></button>
+			<button class="btn btn-outline-info"><i class="far fa-expand"></i></button>
+		</div>
+		<div class="col-auto">
+			<h1 class="m-0" data-value="name">Mewtwo</h1>
+		</div>
+		<div class="col-auto">
+			<p class="text-muted text-small m-0" data-value="manufacturer"></p>
+			<p class="text-muted text-small m-0" data-value="serial"></p>
+		</div>
+		<div class="col text-end">
+			<h3 class="m-0">CMD <b>Max de Groot</b></h3>
+		</div>
+		<div class="col-12">
+			<hr class="m-0">
+		</div>
+	</div>
+	<div class="row g-4 py-4 flex-grow-1">
+		<div class="col-5 d-flex flex-column justify-content-between">
+			<div class="card card-style-2 mb-4 flex-grow-1">
+				<div class="card-body d-flex flex-column">
+					<h2>Cores</h2>
+					<div class="row g-1 h-100" id="cores"></div>
+				</div>
+			</div>
+			<div class="card card-style-2">
+				<div class="card-body position-relative">
+					<p data-value="uptime"></p>
+					<div style="height: 160px;"></div>
+					<svg class="progress-ring" width="120" height="120" id="cpu">
+						<circle class="progress-ring__circle" stroke="white" stroke-width="4" fill="transparent" r="52" cx="60" cy="60"/>
+					</svg>
+
+					<svg class="progress-ring" width="160" height="160" id="mem">
+						<circle class="progress-ring__circle" stroke="white" stroke-width="4" fill="transparent" r="69" cx="80" cy="80"/>
+					</svg>
+				</div>
+			</div>
+		</div>
+		<div class="col pb-4">
+			<div class="card card-style-2 h-100">
+				<div class="card-body">
+					<h2>Storage</h2>
+					<div class="row g-2" id="storage"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row g-4">
+		<div class="col">
+			<div class="card card-style-1 h-100">
+				<div class="card-body">
+					<p class="info-text"><b>CPU</b><span> - USAGE</span></p>
+					<h1 data-value="cpu">00.0%</h1>
+					<div id="cpuChart"></div>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="card card-style-1 h-100">
+				<div class="card-body">
+					<p class="info-text"><b>MEM</b><span> - USED MEMORY</span></p>
+					<h1 data-value="mem">00.0%</h1>
+					<p class="text-muted text-small m-0"><span data-value="curMem"></span> / <span data-value="totMem"></span></p>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="card card-style-1 h-100">
+				<div class="card-body">
+					<p class="info-text"><b>POW</b><span> - BATTERY CHARGE</span></p>
+					<h1 data-value="pow">00.0%</h1>
+					<div id="powChart"></div>
+				</div>
+			</div>
+		</div>
+		<div class="col-5">
+			<div class="card h-100">
+				<div class="card-body">
+					<p class="info-text"><b>GRAPHICS</b></p>
+					<div class="row" id="graphics"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="lines"></div>
+
+<script src="apexcharts/apexcharts.min.js"></script>
+<script src="js/renderer.js"></script>
+</body>
+</html>
